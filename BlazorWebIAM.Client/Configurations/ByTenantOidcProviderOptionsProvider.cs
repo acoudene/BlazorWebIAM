@@ -18,7 +18,7 @@ public class ByTenantOidcProviderOptionsProvider : IOidcProviderOptionsProvider
   }
 
   private readonly IConfiguration _configuration;
-  private readonly IStatefulTenantIdProvider _tenantIdProvider;
+  private readonly ITenantIdProvider _tenantIdProvider;
 
   /// <summary>
   /// Constructor
@@ -28,7 +28,7 @@ public class ByTenantOidcProviderOptionsProvider : IOidcProviderOptionsProvider
   /// <exception cref="ArgumentNullException"></exception>
   public ByTenantOidcProviderOptionsProvider(
     IConfiguration configuration,
-    IStatefulTenantIdProvider tenantIdProvider)
+    ITenantIdProvider tenantIdProvider)
   {    
     _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
     _tenantIdProvider = tenantIdProvider ?? throw new ArgumentNullException(nameof(tenantIdProvider));

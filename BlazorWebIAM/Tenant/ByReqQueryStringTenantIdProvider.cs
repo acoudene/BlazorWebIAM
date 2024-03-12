@@ -9,7 +9,7 @@ namespace BlazorWebIAM.Tenant;
 /// <summary>
 /// Stateless provider to manager tenant id by query string
 /// </summary>
-public class ByReqQueryStringTenantIdProvider : IStatefulTenantIdProvider
+public class ByReqQueryStringTenantIdProvider : ITenantIdProvider
 {
   private const string TenantIdKey = "Tenant";
   private readonly IHttpContextAccessor _httpContextAccessor;

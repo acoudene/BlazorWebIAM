@@ -6,7 +6,7 @@ namespace BlazorWebIAM.Client.Tenant;
 /// <summary>
 /// Dedicated service to get tenant id information
 /// </summary>
-public interface IStatefulTenantIdProvider
+public interface ITenantIdProvider
 {
     /// <summary>
     /// Get tenant id from a dedicated approach (i.e. query string, storage, ...)

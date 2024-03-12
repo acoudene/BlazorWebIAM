@@ -9,11 +9,11 @@ namespace BlazorWebIAM.Security;
 public class MyClaimsTransformation : IClaimsTransformation
 {
   private readonly IHttpContextAccessor _httpContextAccessor;
-  private readonly IStatefulTenantIdProvider _tenantIdProvider;
+  private readonly ITenantIdProvider _tenantIdProvider;
 
   public MyClaimsTransformation(
     IHttpContextAccessor httpContextAccessor,
-    IStatefulTenantIdProvider tenantIdProvider)
+    ITenantIdProvider tenantIdProvider)
   {      
     _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
     _tenantIdProvider = tenantIdProvider ?? throw new ArgumentNullException(nameof(tenantIdProvider));

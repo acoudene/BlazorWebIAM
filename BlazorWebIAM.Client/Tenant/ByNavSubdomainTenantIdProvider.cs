@@ -9,7 +9,7 @@ namespace BlazorWebIAM.Client.Tenant;
 /// <summary>
 /// Get a tenant id by claims
 /// </summary>
-public class ByNavSubdomainTenantIdProvider : IStatefulTenantIdProvider
+public class ByNavSubdomainTenantIdProvider : ITenantIdProvider
 {
   const string TenantIdKey = "Tenant";
   private readonly NavigationManager _navigationManager;

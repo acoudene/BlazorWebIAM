@@ -1,6 +1,8 @@
+using BlazorWebIAM.Client;
 using BlazorWebIAM.Client.Configurations;
 using BlazorWebIAM.Client.Security;
 using BlazorWebIAM.Client.Tenant;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Authentication;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -13,8 +15,7 @@ builder.Services
 
 builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("Authenticated"));
 
-
-builder.Services.AddScoped<IStatefulTenantIdProvider, ByNavSubdomainTenantIdProvider>();
+builder.Services.AddScoped<ITenantIdProvider, MokTenantIdProvider>();
 builder.Services.AddScoped<IOidcProviderOptionsProvider, ByTenantOidcProviderOptionsProvider>();
 
 builder.Services
@@ -31,6 +32,8 @@ builder.Services
     .AddAccountClaimsPrincipalFactory<MyClaimsPrincipalFactory>();
 
 builder.Services.AddApiAuthorization();
+builder.Services.AddCascadingAuthenticationState();
+builder.Services.AddSingleton<AuthenticationStateProvider, PersistentAuthenticationStateProvider>();
 
 host = builder.Build();
 await host.RunAsync();

@@ -23,7 +23,7 @@ public class ByTenantJwtBearerOptionsProvider : IJwtBearerOptionsProvider
 
   private readonly IMemoryCache _memoryCache;
   private readonly IConfiguration _configuration;
-  private readonly IStatefulTenantIdProvider _tenantIdProvider;
+  private readonly ITenantIdProvider _tenantIdProvider;
 
   private TimeSpan _cacheDelayInSec = TimeSpan.FromSeconds(120);
 
@@ -37,7 +37,7 @@ public class ByTenantJwtBearerOptionsProvider : IJwtBearerOptionsProvider
   public ByTenantJwtBearerOptionsProvider(
       IMemoryCache memoryCache,
       IConfiguration configuration,
-      IStatefulTenantIdProvider tenantIdProvider)
+      ITenantIdProvider tenantIdProvider)
   {
     _memoryCache = memoryCache ?? throw new ArgumentNullException(nameof(memoryCache));
     _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));

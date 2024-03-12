@@ -5,6 +5,7 @@ using BlazorWebIAM.Security;
 using BlazorWebIAM.Tenant;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +15,10 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 
+builder.Services.AddCascadingAuthenticationState();
+
 // Tenant by subdomain
-builder.Services.AddTransient<IStatefulTenantIdProvider, ByReqSubDomainTenantIdProvider>();
+builder.Services.AddTransient<ITenantIdProvider, MokTenantIdProvider>();
 
 builder.Services
     .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -27,6 +30,7 @@ builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddTransient<IClaimsTransformation, MyClaimsTransformation>();
 
 builder.Services.AddTransient<IJwtBearerOptionsProvider, ByTenantJwtBearerOptionsProvider>();
+builder.Services.AddSingleton<IMemoryCache, MemoryCache>();
 
 var app = builder.Build();
 
@@ -51,5 +55,8 @@ app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode()
     .AddInteractiveWebAssemblyRenderMode()
     .AddAdditionalAssemblies(typeof(BlazorWebIAM.Client._Imports).Assembly);
+
+// Add additional endpoints required by the Identity /Account Razor components.
+app.MapAdditionalIdentityEndpoints();
 
 app.Run();

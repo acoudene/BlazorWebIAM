@@ -8,7 +8,7 @@ namespace BlazorWebIAM.Tenant
   /// <summary>
   /// Stateless provider to manager tenant id by subdomain
   /// </summary>
-  public class ByReqClaimsTenantIdProvider : IStatefulTenantIdProvider
+  public class ByReqClaimsTenantIdProvider : ITenantIdProvider
   {
     private const string TenantIdKey = "Tenant";
     private readonly IHttpContextAccessor _httpContextAccessor;
