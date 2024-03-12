@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebIAM", "BlazorWebIAM\BlazorWebIAM.csproj", "{32875A12-FBD1-49C5-909C-B865153E8E45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebIAM.Client", "BlazorWebIAM.Client\BlazorWebIAM.Client.csproj", "{C7FA5FDF-9B25-48C3-B26D-806C52642F5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32875A12-FBD1-49C5-909C-B865153E8E45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32875A12-FBD1-49C5-909C-B865153E8E45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32875A12-FBD1-49C5-909C-B865153E8E45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32875A12-FBD1-49C5-909C-B865153E8E45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7FA5FDF-9B25-48C3-B26D-806C52642F5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7FA5FDF-9B25-48C3-B26D-806C52642F5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7FA5FDF-9B25-48C3-B26D-806C52642F5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7FA5FDF-9B25-48C3-B26D-806C52642F5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85D499F8-10FA-4EDB-A9DE-1AF0D217FF7A}
+	EndGlobalSection
+EndGlobal
